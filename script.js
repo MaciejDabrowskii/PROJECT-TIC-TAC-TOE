@@ -1,74 +1,69 @@
 
-let gameBoardObj = {};
-let turn = 1;
-let player1 = "x"
-let player2 = "o"
-let playerPlaying;
-let fieldNumber = {};
-function checkTurn() {
-    if (turn % 2 == 0 ) {
-        playerPlaying = player2
-    }
-    else {
-        playerPlaying = player1
-    }
-}
 
-let polaNode = document.getElementsByClassName("gameboard");
-let pola = [...polaNode];
 
-pola.map((pole) => {
-    pole.addEventListener("click", () => {
-        function checkEmpty() {
-            if (pole.innerHTML != ""){
-                return
+const gameboard = (() => {
+    let fields = [];
+    fields[0] = document.getElementById("field-0");
+    fields[1] = document.getElementById("field-1");
+    fields[2] = document.getElementById("field-2");
+    fields[3] = document.getElementById("field-3");
+    fields[4] = document.getElementById("field-4");
+    fields[5] = document.getElementById("field-5");
+    fields[6] = document.getElementById("field-6");
+    fields[7] = document.getElementById("field-7");
+    fields[8] = document.getElementById("field-8");
+    return {
+        fields
+    }
+})();
+
+
+
+const playerMaker = (name, mark) => {
+    return { name, mark };
+    };
+
+
+const gameControl = (() => {
+
+    const createPlayers = (() => {
+        let button = document.getElementById("create-button")
+        button.addEventListener("click", () => {
+            player1 = playerMaker(`${document.getElementById("player1-name").value}`, 'x');
+            player2 = playerMaker(`${document.getElementById("player2-name").value}`, 'o');
+        })
+    })();
+
+ 
+    const turnCounter = (() => {
+        let turn = 1;
+        function checkTurn() {
+            if (turn % 2 == 0 ) {
+                playerPlaying = player2;
+                turn++;
             }
             else {
-                checkTurn();
+                playerPlaying = player1
                 turn++;
-                pole.innerHTML = playerPlaying;
-                gameBoardObj[pole.id] = playerPlaying;
-                console.log(gameBoardObj);
             }
-        }
-        checkEmpty();
-        winner();
+        };
+        return { checkTurn };
+    })();
 
+    
+
+    gameboard.fields.map((field) => {
+        field.addEventListener("click", () => {
+            turnCounter.checkTurn();
+            field.innerHTML = playerPlaying.mark;
+        })
     })
-})
-function winner() {
-    if (gameBoardObj['field-1'] === "x" && gameBoardObj['field-2'] === "x" && gameBoardObj['field-3'] === "x") {
-        alert("player1 won")
-    }else if (gameBoardObj['field-4'] === "x" && gameBoardObj['field-5'] === "x" && gameBoardObj['field-6'] === "x") {
-        alert("player1 won")
-    }else if (gameBoardObj['field-7'] === "x" && gameBoardObj['field-8'] === "x" && gameBoardObj['field-9'] === "x") {
-        alert("player1 won")
-    }else if (gameBoardObj['field-1'] === "x" && gameBoardObj['field-4'] === "x" && gameBoardObj['field-7'] === "x") {
-        alert("player1 won")
-    }else if (gameBoardObj['field-2'] === "x" && gameBoardObj['field-5'] === "x" && gameBoardObj['field-8'] === "x") {
-        alert("player1 won")
-    }else if (gameBoardObj['field-3'] === "x" && gameBoardObj['field-6'] === "x" && gameBoardObj['field-9'] === "x") {
-        alert("player1 won")
-    }else if (gameBoardObj['field-1'] === "x" && gameBoardObj['field-5'] === "x" && gameBoardObj['field-9'] === "x") {
-        alert("player1 won")
-    }else if (gameBoardObj['field-3'] === "x" && gameBoardObj['field-5'] === "x" && gameBoardObj['field-7'] === "x") {
-        alert("player1 won")
-    }else if (gameBoardObj['field-1'] === "o" && gameBoardObj['field-2'] === "o" && gameBoardObj['field-3'] === "o") {
-        alert("player2 won")
-    }else if (gameBoardObj['field-4'] === "o" && gameBoardObj['field-5'] === "o" && gameBoardObj['field-6'] === "o") {
-        alert("player2 won")
-    }else if (gameBoardObj['field-7'] === "o" && gameBoardObj['field-8'] === "o" && gameBoardObj['field-9'] === "o") {
-        alert("player2 won")
-    }else if (gameBoardObj['field-1'] === "o" && gameBoardObj['field-4'] === "o" && gameBoardObj['field-7'] === "o") {
-        alert("player2 won")
-    }else if (gameBoardObj['field-2'] === "o" && gameBoardObj['field-5'] === "o" && gameBoardObj['field-8'] === "o") {
-        alert("player2 won")
-    }else if (gameBoardObj['field-3'] === "o" && gameBoardObj['field-6'] === "o" && gameBoardObj['field-9'] === "o") {
-        alert("player2 won")
-    }else if (gameBoardObj['field-1'] === "o" && gameBoardObj['field-5'] === "o" && gameBoardObj['field-9'] === "o") {
-        alert("player2 won")
-    }else if (gameBoardObj['field-3'] === "o" && gameBoardObj['field-5'] === "o" && gameBoardObj['field-7'] === "o") {
-        alert("player2 won")
-    }
 
-    }
+
+})();
+
+
+
+let player1;
+let player2;
+let playerPlaying;

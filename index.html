@@ -10,10 +10,14 @@
 </head>
 <body>
     <div class="player-selection">
-        <button class="player-1-button">PLAYER 1</button>
-        <button class="player-2-button">PLAYER 2</button>
+        <label for="player1-name">Player 1</label>
+        <input type="text" id="player1-name">
+        <label for="player2-name">Player 2</label>
+        <input type="text" id="player2-name">
+        <button id="create-button">Create players</button>
     </div>
     <div class="gameboard-div">
+        <div class="gameboard" id="field-0"></div>
         <div class="gameboard" id="field-1"></div>
         <div class="gameboard" id="field-2"></div>
         <div class="gameboard" id="field-3"></div>
@@ -22,7 +26,6 @@
         <div class="gameboard" id="field-6"></div>
         <div class="gameboard" id="field-7"></div>
         <div class="gameboard" id="field-8"></div>
-        <div class="gameboard" id="field-9"></div>
     </div>
 </body>
 </html>
