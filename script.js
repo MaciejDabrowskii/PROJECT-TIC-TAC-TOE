@@ -1,3 +1,6 @@
+let player1;
+let player2;
+let playerPlaying;
 
 
 
@@ -19,12 +22,44 @@ const gameboard = (() => {
 
 
 
-const playerMaker = (name, mark) => {
-    return { name, mark };
-    };
+
 
 
 const gameControl = (() => {
+    
+    const playerMaker = (name, mark) => {
+        let score = 0;
+        return { name, mark, score };
+    };
+
+    const winner = (() => {
+        function check() {
+            if (gameboard.fields[0].innerHTML === "x" && gameboard.fields[1].innerHTML === "x" && gameboard.fields[2].innerHTML === "x") {
+                alert("player 1 has won");
+            } else if (gameboard.fields[3].innerHTML === "x" && gameboard.fields[4].innerHTML === "x" && gameboard.fields[5].innerHTML === "x") {
+                alert("player 1 has won");
+            } else if (gameboard.fields[6].innerHTML === "x" && gameboard.fields[7].innerHTML === "x" && gameboard.fields[8].innerHTML === "x") {
+                alert("player 1 has won");
+            } else if (gameboard.fields[0].innerHTML === "x" && gameboard.fields[4].innerHTML === "x" && gameboard.fields[8].innerHTML === "x") {
+                alert("player 1 has won");
+            } else if (gameboard.fields[2].innerHTML === "x" && gameboard.fields[4].innerHTML === "x" && gameboard.fields[6].innerHTML === "x") {
+                alert("player 1 has won");
+            } else if (gameboard.fields[0].innerHTML === "o" && gameboard.fields[1].innerHTML === "o" && gameboard.fields[2].innerHTML === "o") {
+                alert("player 1 has won");
+            } else if (gameboard.fields[3].innerHTML === "o" && gameboard.fields[4].innerHTML === "o" && gameboard.fields[5].innerHTML === "o") {
+                alert("player 1 has won");
+            } else if (gameboard.fields[6].innerHTML === "o" && gameboard.fields[7].innerHTML === "o" && gameboard.fields[8].innerHTML === "o") {
+                alert("player 1 has won");
+            } else if (gameboard.fields[0].innerHTML === "o" && gameboard.fields[4].innerHTML === "o" && gameboard.fields[8].innerHTML === "o") {
+                alert("player 1 has won");
+            } else if (gameboard.fields[2].innerHTML === "o" && gameboard.fields[4].innerHTML === "o" && gameboard.fields[6].innerHTML === "o") {
+                alert("player 1 has won");
+            }else if ( turnCounter.turn === 9) {
+                alert("tie!")
+            }
+        };
+        return { check }
+    })();
 
     const createPlayers = (() => {
         let button = document.getElementById("create-button")
@@ -47,23 +82,23 @@ const gameControl = (() => {
                 turn++;
             }
         };
-        return { checkTurn };
+        return { checkTurn};
     })();
 
-    
+
+
 
     gameboard.fields.map((field) => {
         field.addEventListener("click", () => {
-            turnCounter.checkTurn();
-            field.innerHTML = playerPlaying.mark;
+            if (field.innerHTML === "") {
+                turnCounter.checkTurn();
+                field.innerHTML = playerPlaying.mark;
+                winner.check();
+            }
         })
     })
-
 
 })();
 
 
 
-let player1;
-let player2;
-let playerPlaying;
