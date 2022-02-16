@@ -1,104 +1,37 @@
-let player1;
-let player2;
-let playerPlaying;
+const game = (() => {
+    let gameboardArray = [];
+    for (let i = 0; i < 9; i++) {
+        gameboardArray.push("")
+    };
+    const gameboardDiv = document.querySelector(".gameboard-div");
 
-
-
-const gameboard = (() => {
-    let fields = [];
-    fields[0] = document.getElementById("field-0");
-    fields[1] = document.getElementById("field-1");
-    fields[2] = document.getElementById("field-2");
-    fields[3] = document.getElementById("field-3");
-    fields[4] = document.getElementById("field-4");
-    fields[5] = document.getElementById("field-5");
-    fields[6] = document.getElementById("field-6");
-    fields[7] = document.getElementById("field-7");
-    fields[8] = document.getElementById("field-8");
-    return {
-        fields
-    }
-})();
-
-
-
-
-
-
-const gameControl = (() => {
-    
-    const playerMaker = (name, mark) => {
-        let score = 0;
-        return { name, mark, score };
+    const drawBoard = () => {
+        gameboardArray.forEach((item, index) => {
+            const field = document.createElement("div");
+            field.classList.add('gameboard-field');
+            field.dataset.key = `${index}`;
+            field.textContent = item;
+            gameboardDiv.appendChild(field);
+        });
+    };
+    const resetBoard = () => {
+        gameboardArray.forEach((item) => {
+            item = "";
+        });
+        gameboardDiv.innerHTML = "";
     };
 
-    const winner = (() => {
-        function check() {
-            if (gameboard.fields[0].innerHTML === "x" && gameboard.fields[1].innerHTML === "x" && gameboard.fields[2].innerHTML === "x") {
-                alert("player 1 has won");
-            } else if (gameboard.fields[3].innerHTML === "x" && gameboard.fields[4].innerHTML === "x" && gameboard.fields[5].innerHTML === "x") {
-                alert("player 1 has won");
-            } else if (gameboard.fields[6].innerHTML === "x" && gameboard.fields[7].innerHTML === "x" && gameboard.fields[8].innerHTML === "x") {
-                alert("player 1 has won");
-            } else if (gameboard.fields[0].innerHTML === "x" && gameboard.fields[4].innerHTML === "x" && gameboard.fields[8].innerHTML === "x") {
-                alert("player 1 has won");
-            } else if (gameboard.fields[2].innerHTML === "x" && gameboard.fields[4].innerHTML === "x" && gameboard.fields[6].innerHTML === "x") {
-                alert("player 1 has won");
-            } else if (gameboard.fields[0].innerHTML === "o" && gameboard.fields[1].innerHTML === "o" && gameboard.fields[2].innerHTML === "o") {
-                alert("player 1 has won");
-            } else if (gameboard.fields[3].innerHTML === "o" && gameboard.fields[4].innerHTML === "o" && gameboard.fields[5].innerHTML === "o") {
-                alert("player 1 has won");
-            } else if (gameboard.fields[6].innerHTML === "o" && gameboard.fields[7].innerHTML === "o" && gameboard.fields[8].innerHTML === "o") {
-                alert("player 1 has won");
-            } else if (gameboard.fields[0].innerHTML === "o" && gameboard.fields[4].innerHTML === "o" && gameboard.fields[8].innerHTML === "o") {
-                alert("player 1 has won");
-            } else if (gameboard.fields[2].innerHTML === "o" && gameboard.fields[4].innerHTML === "o" && gameboard.fields[6].innerHTML === "o") {
-                alert("player 1 has won");
-            }else if ( turnCounter.turn === 9) {
-                alert("tie!")
-            }
-        };
-        return { check }
-    })();
-
-    const createPlayers = (() => {
-        let button = document.getElementById("create-button")
-        button.addEventListener("click", () => {
-            player1 = playerMaker(`${document.getElementById("player1-name").value}`, 'x');
-            player2 = playerMaker(`${document.getElementById("player2-name").value}`, 'o');
-        })
-    })();
-
- 
-    const turnCounter = (() => {
-        let turn = 1;
-        function checkTurn() {
-            if (turn % 2 == 0 ) {
-                playerPlaying = player2;
-                turn++;
-            }
-            else {
-                playerPlaying = player1
-                turn++;
-            }
-        };
-        return { checkTurn};
-    })();
-
-
-
-
-    gameboard.fields.map((field) => {
-        field.addEventListener("click", () => {
-            if (field.innerHTML === "") {
-                turnCounter.checkTurn();
-                field.innerHTML = playerPlaying.mark;
-                winner.check();
-            }
-        })
-    })
-
+    return {resetBoard, drawBoard,}
 })();
 
+const player = (name, mark) => {
+    let score = 0;
+    const getScore = () => score;
+    const getMark = () => mark;
+    const getName = () => name;
+    return {getName, getMark, getScore, updateName}
+};
 
-
+const player1 = player(document.getElementById("player1-name").innerHTML, '✖');
+const player2 = player(document.getElementById("player2-name").innerHTML, '〇');
+let playerPlaying;
