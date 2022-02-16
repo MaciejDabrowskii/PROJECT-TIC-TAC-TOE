@@ -10,14 +10,21 @@
 </head>
 <body>
     <div class="player-selection">
-        <label for="player1-name">Player 1</label>
-        <input type="text" id="player1-name">
-        <label for="player2-name">Player 2</label>
-        <input type="text" id="player2-name">
+        <div class="player1">
+            <label for="player1-name">Player ✖</label>
+            <input type="text" id="player1-name">
+            <div>Score: <div class="player1-score"></div></div>
+        </div>
+        <div class="player2">
+            <label for="player2-name">Player 〇</label>
+            <input type="text" id="player2-name">
+            <div>Score: <div class="player2-score"></div></div>
+        </div>
+        <div class="winner"></div>
     </div>
     <div class="gameboard-div">
     </div>
-    <button class="reset">RESET</button>
-    <button class="next-round">NEXT ROUND</button>
+    <button class="reset-button">RESET</button>
+    <button class="next-round-button">NEXT ROUND</button>
 </body>
 </html>
