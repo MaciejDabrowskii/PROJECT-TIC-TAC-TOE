@@ -131,6 +131,7 @@ const gameControler = (() => {
         turn = 1;
         game.scoreField().player1().innerHTML = 0;
         game.scoreField().player2().innerHTML = 0;
+        document.querySelector(".winner").innerHTML = "";
     }
     
     const nextRound = () => {
@@ -138,6 +139,7 @@ const gameControler = (() => {
         game.drawBoard();
         addListener();
         turn = 1;
+        document.querySelector(".winner").innerHTML = "";
     }
     
     const resetButton = document.querySelector(".reset-button").addEventListener("click", () => {resetGame()});
