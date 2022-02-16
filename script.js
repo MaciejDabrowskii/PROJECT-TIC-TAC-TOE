@@ -49,7 +49,7 @@ const game = (() => {
     const updateBoard = () => {
         gameboardDiv.innerHTML = "";
         drawBoard();
-    }
+    };
 
     const scoreField = () => {
         const player1 = () => document.querySelector(".player1-score");
@@ -75,10 +75,12 @@ const game = (() => {
                     playerPlaying.addPoint();
                     scoreField().player1().innerHTML = playerPlaying.getScore();
                     document.querySelector(".winner").innerHTML = `${document.getElementById("player1-name").value} has won!`;
+                    updateBoard();
                 } else {
                     playerPlaying.addPoint();
                     scoreField().player2().innerHTML = playerPlaying.getScore();
                     document.querySelector(".winner").innerHTML = `${document.getElementById("player2-name").value} has won!`;
+                    updateBoard();
                 }
             }
     };
