@@ -77,6 +77,8 @@ button:active {
 }
 input[type=text] {
     font-family: 'Ubuntu', sans-serif;
+    font-weight: bolder;
+    text-align: center;
     width: 100%;
     padding: 5px;
     margin: 5% 0;
@@ -85,6 +87,9 @@ input[type=text] {
     -o-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;   
+}
+::placeholder {
+    text-align: center;
 }
 
 .winner {
