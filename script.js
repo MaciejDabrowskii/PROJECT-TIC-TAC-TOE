@@ -108,7 +108,6 @@ const game = (() => {
 })();
 
 
-
 const gameControler = (() => {
     
     let turn = 1;
@@ -116,7 +115,7 @@ const gameControler = (() => {
 
     const playerTurn = () => {
         (!(turn%2 == 0)) ? playerPlaying = player1 : playerPlaying = player2;     
-    }
+    };
     
 
     const addListener = () => {
@@ -146,7 +145,7 @@ const gameControler = (() => {
         game.scoreField().player2().innerHTML = 0;
         document.querySelector(".winner").innerHTML = "";
         document.querySelector(".winner").classList.remove("announce-winner", "announce-tie");
-    }
+    };
     
     const nextRound = () => {
         game.resetBoard();
@@ -155,7 +154,7 @@ const gameControler = (() => {
         turn = 1;
         document.querySelector(".winner").innerHTML = "";
         document.querySelector(".winner").classList.remove("announce-winner", "announce-tie");
-    }
+    };
     
     const resetButton = document.querySelector(".reset-button").addEventListener("click", () => {resetGame()});
     const nextRoundButton = document.querySelector(".next-round-button").addEventListener("click", () => {nextRound()});
@@ -168,7 +167,3 @@ const gameControler = (() => {
 
 })();
 gameControler.resetGame();
-
-
-
-
