@@ -145,6 +145,7 @@ const gameControler = (() => {
         game.scoreField().player1().innerHTML = 0;
         game.scoreField().player2().innerHTML = 0;
         document.querySelector(".winner").innerHTML = "";
+        document.querySelector(".winner").classList.remove("announce-winner", "announce-tie");
     }
     
     const nextRound = () => {
@@ -153,6 +154,7 @@ const gameControler = (() => {
         addListener();
         turn = 1;
         document.querySelector(".winner").innerHTML = "";
+        document.querySelector(".winner").classList.remove("announce-winner", "announce-tie");
     }
     
     const resetButton = document.querySelector(".reset-button").addEventListener("click", () => {resetGame()});
