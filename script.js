@@ -70,19 +70,30 @@ const game = (() => {
             gameboardArray[2] !== "" && gameboardArray[2] === gameboardArray[5] && gameboardArray[5] === gameboardArray[8] ||
             gameboardArray[0] !== "" && gameboardArray[0] === gameboardArray[4] && gameboardArray[4] === gameboardArray[8] ||
             gameboardArray[2] !== "" && gameboardArray[2] === gameboardArray[4] && gameboardArray[4] === gameboardArray[6]
-            ) {
+        )   
+            {
                 if (playerPlaying === player1) {
                     playerPlaying.addPoint();
                     scoreField().player1().innerHTML = playerPlaying.getScore();
                     document.querySelector(".winner").innerHTML = `${document.getElementById("player1-name").value} has won!`;
                     updateBoard();
+                    document.querySelector(".winner").classList.add("announce-winner");
                 } else {
                     playerPlaying.addPoint();
                     scoreField().player2().innerHTML = playerPlaying.getScore();
                     document.querySelector(".winner").innerHTML = `${document.getElementById("player2-name").value} has won!`;
                     updateBoard();
+                    document.querySelector(".winner").classList.add("announce-winner");
                 }
             }
+        
+        else if (
+            gameControler.getTurn() === 10
+        ) {
+                document.querySelector(".winner").innerHTML = `There is a TIE!`;
+                updateBoard();
+                document.querySelector(".winner").classList.add("announce-tie");
+        }
     };
 
     return {
