@@ -1,2 +1,10 @@
+<div align="center">
 # PROJECT-TIC-TAC-TOE
-I'm making a Tic Tac Toe game. Assignment: https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/tic-tac-toe#assignment
+Tic Tac Toe game as learning project. 
+Assignment: https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/tic-tac-toe#assignment
+
+</div>
+
+### Live Preview
+
+🔗 <b> [Live preview](https://maciejdabrowskii.github.io/PROJECT-TIC-TAC-TOE/)</b>
