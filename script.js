@@ -26,7 +26,7 @@ const game = (() => {
     
     for (let i = 0; i < 9; i++) {
         gameboardArray.push("")
-    };
+    }
     
     const gameboardDiv = document.querySelector(".gameboard-div");
 
@@ -90,7 +90,7 @@ const game = (() => {
         else if (
             gameControler.getTurn() === 10
         ) {
-                document.querySelector(".winner").innerHTML = `There is a TIE!`;
+                document.querySelector(".winner").innerHTML = `TIE!`;
                 updateBoard();
                 document.querySelector(".winner").classList.add("announce-tie");
         }
