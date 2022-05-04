@@ -6,7 +6,7 @@
 
 </div>
   
-Tic Tac Toe game as learning project. 
+<b> Tic Tac Toe game as learning project. </b>
 Assignment: https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/tic-tac-toe#assignment
 
 
