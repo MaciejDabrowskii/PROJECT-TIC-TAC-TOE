@@ -1,9 +1,10 @@
 <div align="center">
 # PROJECT-TIC-TAC-TOE
+  </div>
 Tic Tac Toe game as learning project. 
 Assignment: https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/tic-tac-toe#assignment
 
-</div>
+
 
 ### Live Preview
 
