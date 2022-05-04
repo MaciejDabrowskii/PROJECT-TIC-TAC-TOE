@@ -2,7 +2,7 @@
  
 # PROJECT-TIC-TAC-TOE
  
- <img alt="App preview" src=""https://github.com/MaciejDabrowskii/PROJECT-TIC-TAC-TOE/blob/main/TIC-TAC-TOE%20preview.jpg"">
+<img alt="App preview" src="https://github.com/MaciejDabrowskii/PROJECT-TIC-TAC-TOE/blob/main/TIC-TAC-TOE%20preview.jpg">
 
 </div>
   
